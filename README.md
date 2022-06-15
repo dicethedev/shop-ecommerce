@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+### Materials used for this project
+
+yarn add styled-components
+yarn add react-icons
+yarn add @material-ui/core @material-ui/icons
+# or
+npm install react-icons --save
+
+
 ## Available Scripts
 
 In the project directory, you can run:
