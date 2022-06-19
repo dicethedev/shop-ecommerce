@@ -3,10 +3,10 @@ import Navbar from '../components/Navbar'
 import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import { Remove, Add } from '@material-ui/icons'
+import { useSelector } from "react-redux"
 
- const Container = styled.div`
+ const Container = styled.div``
 
- `
   const Wrapper = styled.div`
      padding: 20px;
  `
@@ -33,11 +33,10 @@ import { Remove, Add } from '@material-ui/icons'
  `
   const TopText = styled.span`
       text-decoration: underline;
-      font-weight: 600;
+      font-weight: 500;
       margin: 0px 10px;
  `
-
-  const Bottom = styled.div`
+const Bottom = styled.div`
      display: flex;
      justify-content: space-between;
  `
@@ -99,13 +98,11 @@ const ProductPrice = styled.div`
 `;
 
 //Product Detail End Styling...
-
 const Hr = styled.hr`
  background-color: #eee;
  border: none;
  height: 1px;
 `
-
 //Summary styling ....
 const Summary = styled.div`
    flex: 1;
@@ -142,6 +139,10 @@ const Summary = styled.div`
  // Summary End Styling.....
 
 const Cart = () => {
+
+       //the state.cart here is coming from store.js inside redux folder
+     const cart = useSelector(state => state.cart)
+     
      return (
           <Container>
              <Navbar />
@@ -159,27 +160,37 @@ const Cart = () => {
 
                   <Bottom>
                        <Info>
-                            <Product>
+                          { cart.products.map((product) => (
+                          <Product>
                                  <ProductDetail>
-                                      <Image src="https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg?cs=srgb&dl=pexels-terje-sollie-298864.jpg&fm=jpg"/>
+                                      {/* <Image src="https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg?cs=srgb&dl=pexels-terje-sollie-298864.jpg&fm=jpg"/> */}
+                                 <Image src={product.img} />
                                  <Details>
-                                      <ProductName><b>Product:</b> JESSE THUNDER SHOES </ProductName>
-                                       <ProductId><b>Track ID:</b> 94813718293 </ProductId>
-                                       <ProductColor color="black" />
-                                       <ProductSize><b>Size:</b> 37.8 </ProductSize>
+                                      <ProductName><b>Product:</b> {product.title}
+                                      </ProductName>
+                                       <ProductId><b>Track ID:</b> {product._id}
+                                       </ProductId>
+                                       <ProductColor color={product.color} />
+                                       <ProductSize><b>Size:</b> {product.size}
+                                       </ProductSize>
                                  </Details>
                                  </ProductDetail>
                                  <PriceDetail>
                                      <ProductAmountContainer>
                                           <Add />
-                                          <ProductAmount>2</ProductAmount>
+                                          <ProductAmount>{product.quantity}</ProductAmount>
                                           <Remove />
                                      </ProductAmountContainer>
-                                     <ProductPrice>$ 30</ProductPrice>
+                                     <ProductPrice>
+                                        $ {product.price * product.quantity}
+                                     </ProductPrice>
                                  </PriceDetail>
-                            </Product>
+                            </Product> 
+                            )) }
+                            
                             <Hr />
-                            <Product>
+
+                            {/* <Product>
                                  <ProductDetail>
                                       <Image src="https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?cs=srgb&dl=pexels-monstera-5384423.jpg&fm=jpg"/>
                                  <Details>
@@ -203,13 +214,14 @@ const Cart = () => {
                                      </ProductAmountContainer>
                                      <ProductPrice>$ 20</ProductPrice>
                                  </PriceDetail>
-                            </Product>
+                            </Product> */}
+
                        </Info>
                        <Summary>
                             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                             <SummaryItem>
                                 <SummaryItemText>Subtotal</SummaryItemText>
-                                <SummaryItemPrice>$ 80</SummaryItemPrice>  
+                                <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>  
                             </SummaryItem>
                             <SummaryItem>
                                 <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -221,7 +233,7 @@ const Cart = () => {
                             </SummaryItem>
                               <SummaryItem  type="total">
                                 <SummaryItemText>Total</SummaryItemText>
-                                <SummaryItemPrice>$ 80</SummaryItemPrice>  
+                                <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>  
                             </SummaryItem>
                             <SummaryButton>CHECKOUT NOW</SummaryButton>
                        </Summary>

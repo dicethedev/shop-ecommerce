@@ -10,7 +10,16 @@ yarn add react-icons
 yarn add @material-ui/core @material-ui/icons
 # or
 npm install react-icons --save
+npm install react-router-dom
+npm install axios
+npm install @reduxjs/toolkit
+yarn add react-redux //or npm i react-redux
+//or
+yarn add @reduxjs/toolkit react-redux
+npm i react-stripe-checkout
 
+## you can take note of this
+The "useDispatch" hook is used to dispatch an action while "useSelector" hook is used to get the state from the redux store.
 
 ## Available Scripts
 

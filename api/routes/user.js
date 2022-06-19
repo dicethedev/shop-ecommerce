@@ -49,7 +49,7 @@ router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}); 
 
 //GET ALL USER
 router.get("/", verifyTokenAndAdmin, async (req, res) => {

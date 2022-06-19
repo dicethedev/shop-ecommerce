@@ -1,6 +1,8 @@
 
 import styled from 'styled-components'
 import { mobile } from "../responsive"
+import { Link } from 'react-router-dom'
+
 
 // flex with the container to have the same size with each other one 
 const Container = styled.div`
@@ -44,11 +46,13 @@ const Button = styled.button`
 const CategoryItem = ({item}) => {
      return (
           <Container>
-               <Image src={item.image}/>
+               <Link to={`/products/${item.cat}`}>
+               <Image src={item.img}/>
                <Info>
                     <Title>{item.title}</Title>
                     <Button>SHOP NOW</Button>
                </Info>
+               </Link>
           </Container>
      )
 }

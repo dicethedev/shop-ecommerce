@@ -69,8 +69,17 @@ const Description = styled.p`
 const Button = styled.button`
      padding: 10px;
      font-size: 20px;
-     background-color: transparent;
+     border: none;
+     border-radius: 10px;
+     background: rgb(238,174,202);
+     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+     color: #ffff;
      cursor: pointer;
+     transition: all 0.5s ease-in-out;
+
+     :hover {
+         background: rgb(238,174,202);
+     }
 `
 
 const Slider = () => {
