@@ -72,7 +72,7 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
  
-   //the state.cart here is coming from store.js inside redux folder
+   //the state.cart here is coming from store.js inside Eedux folder
    const quantity = useSelector(state => state.cart.quantity)
   //  console.log(quantity)
 

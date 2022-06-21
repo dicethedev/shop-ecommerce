@@ -18,6 +18,7 @@ yarn add react-redux //or npm i react-redux
 yarn add @reduxjs/toolkit react-redux
 npm i react-stripe-checkout
 npm install @stripe/react-stripe-js @stripe/stripe-js
+npm install redux-persist
 
 ## you can take note of this
 The "useDispatch" hook is used to dispatch an action while "useSelector" hook is used to get the state from the redux store.

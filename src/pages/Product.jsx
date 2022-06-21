@@ -69,7 +69,6 @@ const FilterSize = styled.select`
    margin-left: 10px;
    padding: 5px;
 `
-
 const FilterSizeOption = styled.option`
    
 `
@@ -153,7 +152,7 @@ const Product = () => {
         
         //---------------- function handling Add To Cart ------------------------
         const handleAddToCartClick = () => {
-         //product, quantity and price is coming from cartRedux
+         //product, quantity and price is coming from cartRedux from Redux folder
          // dispatch(addProduct({ product, quantity, price: product.price * quantity }));
           dispatch(addProduct({ ...product, quantity, color, size }));
         }
